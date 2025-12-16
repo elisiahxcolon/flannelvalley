@@ -1,23 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@300;400;500&display=swap');
+
 /* ------------------------------------------- */
 /* 1. Global & Background Styling */
 /* ------------------------------------------- */
 
-/* Apply the red and black flannel background look */
 body {
-    /* Base color for contrast */
     background-color: #333333; 
-    /* Placeholder for the flannel texture. Assumes 'background.png' is in public/ */
     background-image: url('background.png');
-    background-size: cover;
+    background-size: 900px 900px; 
     background-attachment: fixed;
-    /* Font: Strong, modern sans-serif for a rugged feel */
-    font-family: 'Arial Black', 'Impact', sans-serif;
-    color: #f0f0f0; /* Light text for readability */
+
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #f0f0f0; 
     margin: 0;
     padding: 0;
 }
 
-/* Ensure the main content area has some structure */
 #root {
     min-height: 100vh;
     display: flex;
@@ -32,112 +30,102 @@ section {
 }
 
 /* ------------------------------------------- */
-/* 2. Header and Paragraph Styling (Centered, See-Through Borders) */
+/* 2. Header and Paragraph Styling */
 /* ------------------------------------------- */
 
 h1, h2 {
-    color: #ff3333; /* Bright, tactical red for headers */
+    font-family: 'Permanent Marker', cursive;
+    color: #ff3333; 
     text-transform: uppercase;
     letter-spacing: 3px;
-    padding: 10px 0;
-    margin-bottom: 20px;
-    /* CENTERED HEADERS */
-    text-align: center; 
+    padding: 12px 0;
+    margin-bottom: 25px;
+    text-align: center;
 }
 
 h1::after, h2::after {
     content: '';
     display: block;
-    width: 100px;
+    width: 120px;
     height: 3px;
     background: #ff3333;
-    margin: 10px auto 0 auto; /* Center the underline */
+    margin: 12px auto 0 auto;
 }
 
 p {
+    font-family: 'Roboto', sans-serif;
     line-height: 1.8;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 12px;
 }
 
-/* Styling for Paragraphs and Headers to have transparent borders */
+/* Transparent panels */
 p, h1, h2 {
-    /* Translucent black background for see-through effect */
-    background-color: rgba(0, 0, 0, 0.4); 
-    /* Black border that you can see through */
+    background-color: rgba(0, 0, 0, 0.45); 
     border: 1px solid rgba(0, 0, 0, 0.7); 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25); 
     transition: background-color 0.3s ease;
 }
 
 p:hover, h1:hover, h2:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.55);
 }
 
 /* ------------------------------------------- */
-/* 3. Navigation Styling (Hover Animations) */
+/* 3. Navigation Styling (Brush Look) */
 /* ------------------------------------------- */
 
 nav {
-    background-color: rgba(10, 10, 10, 0.9); /* Dark, almost black bar */
-    padding: 15px 20px;
+    background-color: rgba(10, 10, 10, 0.9);
+    padding: 18px 20px;
     text-align: center;
     border-bottom: 2px solid #ff3333;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 nav a {
-    color: #f0f0f0; /* White text */
+    font-family: 'Permanent Marker', cursive;
+    color: #f0f0f0;
     text-decoration: none;
-    margin: 0 15px;
-    padding: 5px 0;
-    font-weight: bold;
-    letter-spacing: 1px;
+    margin: 0 18px;
+    padding: 6px 0;
+    font-size: 20px;
+    letter-spacing: 2px;
     position: relative;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-/* Visited Link Color: Red */
 nav a:visited {
-    color: #cc0000; /* Darker red for visited links */
+    color: #cc0000;
 }
 
-/* Hover/Focus Animation: Red Highlight */
 nav a:hover,
 nav a:focus {
-    color: #ff3333; /* Bright red on hover */
+    color: #ff3333;
 }
 
-/* Underline effect on hover */
 nav a::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -6px;
     left: 0;
     width: 0; 
-    height: 2px;
+    height: 3px;
     background: #ff3333;
     transition: width 0.3s ease; 
 }
 
 nav a:hover::after {
-    width: 100%; /* Underline appears */
-}
-
-/* Active Link Style (for NavLink component) */
-nav a.active {
-    color: white; 
-    border-bottom: 2px solid white;
+    width: 100%;
 }
 
 /* ------------------------------------------- */
-/* 4. Slideshow, Image, and Team Styling (FINAL SIZING) */
+/* 4. Slideshow, Image, and Team Styling */
 /* ------------------------------------------- */
 
-/* Global Image Styling (Black Border, Shadow, Transition) */
 img {
     border: 3px solid #000000; 
-    box-shadow: 0 0 10px rgba(255, 51, 51, 0.5); 
+    box-shadow: 0 0 12px rgba(255, 51, 51, 0.6); 
     object-fit: cover; 
     transition: transform 0.3s ease;
     width: 100%;
@@ -145,56 +133,53 @@ img {
 }
 
 img:hover {
-    transform: scale(1.02); /* Slight zoom on hover */
+    transform: scale(1.02);
 }
 
-/* Slideshow Container Styling (Smaller Size) */
-/* NOTE: This relies on the 'slideshow' class being added to the div in App.jsx */
 .slideshow {
     position: relative;
-    max-width: 550px; /* Reduced width to 550px */
-    margin: 20px auto;
+    max-width: 550px; 
+    margin: 30px auto;
     overflow: hidden;
     border: 5px solid #ff3333; 
 }
 
 .slideshow img {
-    /* Set a smaller, uniform height for the images */
     width: 100%; 
-    height: 300px; /* Reduced height to 300px */
+    height: 300px; 
     object-fit: cover;
-    border: none; /* Remove global black border from the main slide image */
+    border: none;
 }
 
-/* Slideshow Button Styling (Red and Black Themed) */
 .slideshow button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.7); /* Black background */
-    border: 2px solid #ff3333; /* Red border */
-    color: white; /* White arrow */
-    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.75); 
+    border: 2px solid #ff3333; 
+    color: white; 
+    padding: 10px 16px;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 26px;
     transition: background 0.3s, color 0.3s;
     z-index: 10;
 }
 
 .slideshow button:hover {
-    background: #ff3333; /* Solid Red on hover */
-    color: black; /* Black arrow on red background */
+    background: #ff3333; 
+    color: black; 
 }
 
-.slideshow button:first-of-type { /* Left arrow */
+.slideshow button:first-of-type {
     left: 10px;
 }
 
-.slideshow button:last-of-type { /* Right arrow */
+.slideshow button:last-of-type {
     right: 10px;
 }
 
-/* Team Section Layout (Requires the updated App.jsx structure with .team-member divs) */
+/* Team Section */
+
 .team-section {
     text-align: center;
 }
@@ -207,19 +192,17 @@ img:hover {
 }
 
 .team-member img {
-    /* Specific size for team member images */
     width: 100%;
     height: 250px; 
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .member-name {
+    font-family: 'Permanent Marker', cursive;
     margin-top: 0;
-    font-weight: bold;
     color: #ff3333;
     text-align: center; 
     background-color: rgba(0, 0, 0, 0.6); 
-    border-top: none;
 }
 
 /* ------------------------------------------- */
