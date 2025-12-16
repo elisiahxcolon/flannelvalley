@@ -3,35 +3,35 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 import "./App.css"
 
 function Slideshow() {
-  const [slideIndex, setSlideIndex] = useState(1)
+  const [slideIndex, setSlideIndex] = useState(1)
 
-  const slides = [
-    { src: "img1.jpg" },
-    { src: "img2.jpg" },
-    { src: "img3.jpg" }
-  ]
+  const slides = [
+    { src: "img1.jpg" },
+    { src: "img2.jpg" },
+    { src: "img3.jpg" }
+  ]
 
-  function nextSlide(n) {
-    let newIndex = slideIndex + n
-    if (newIndex > slides.length) newIndex = 1
-    if (newIndex < 1) newIndex = slides.length
-    setSlideIndex(newIndex)
-  }
+  function nextSlide(n) {
+    let newIndex = slideIndex + n
+    if (newIndex > slides.length) newIndex = 1
+    if (newIndex < 1) newIndex = slides.length
+    setSlideIndex(newIndex)
+  }
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide(1)
-    }, 4000)
-    return () => clearInterval(timer)
-  }, [slideIndex])
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide(1)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [slideIndex])
 
-  return (
-    <div>
-      <img src={slides[slideIndex - 1].src} alt="slide" width="100%" />
-      <button onClick={() => nextSlide(-1)}>❮</button>
-      <button onClick={() => nextSlide(1)}>❯</button>
-    </div>
-  )
+  return (
+    <div className="slideshow"> {/* <--- CORRECTED: ADDED className="slideshow" */}
+      <img src={slides[slideIndex - 1].src} alt="slide" width="100%" />
+      <button onClick={() => nextSlide(-1)}>❮</button>
+      <button onClick={() => nextSlide(1)}>❯</button>
+    </div>
+  )
 }
 
 function Home() {
@@ -47,16 +47,26 @@ function Home() {
   )
 }
 
+
 function Team() {
   return (
-    <section>
+    <section className="team-section">
       <h2>Meet the Team</h2>
       <p>
         Veteran-led and mission-driven. Our team brings military discipline,
         operational experience, and a commitment to responsible firearms ownership.
       </p>
-      <img src="team1.jpg" alt="Team member" width="200" />
-      <img src="team2.jpg" alt="Team member" width="200" />
+      
+      <div className="team-member">
+        <img src="team1.jpg" alt="Team member Flannel John" />
+        <p className="member-name">Flannel John</p>
+      </div>
+
+      <div className="team-member">
+        <img src="team2.jpg" alt="Team member Sergeant Sarah" />
+        <p className="member-name">Sergeant Sarah</p>
+      </div>
+      
     </section>
   )
 }
